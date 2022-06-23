@@ -22,7 +22,7 @@ class OrinpicTest {
      */
     @Test
     void isCommonHeldYear() {
-        int years[] = {1900,1920,1964,1936,2000};
+        int[] years = {1900,1920,1964,1936,2000};
         for (int year :
                 years) {
             assertTrue(new Orinpic().isSummerOlympic(year), year + "年");
@@ -34,7 +34,7 @@ class OrinpicTest {
      */
     @Test
     void isCommonNotHeldYear(){
-        int years[] = {1905,1907,1925,1967,2001};
+        int[] years = {1905,1907,1925,1967,2001};
         for (int year :
                 years) {
             assertFalse(new Orinpic().isSummerOlympic(year), year + "年");
@@ -46,7 +46,7 @@ class OrinpicTest {
      */
     @Test
     void isCancelledYear() {
-        int years[] = {1916,1940,1944,2020};
+        int[] years = {1916,1940,1944,2020};
         for (int year :
                 years) {
             assertFalse(new Orinpic().isSummerOlympic(year), year + "年");
@@ -57,7 +57,7 @@ class OrinpicTest {
      * 例外的な開催年
      */
     void isExtraHeldYear(){
-        int years[] = {2021};
+        int[] years = {2021};
         for (int year :
                 years) {
             assertTrue(new Orinpic().isSummerOlympic(year), year + "年");

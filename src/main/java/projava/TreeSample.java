@@ -1,6 +1,7 @@
 package projava;
 
 import java.util.ArrayDeque;
+import java.util.Queue;
 
 public class TreeSample {
     static abstract class Node{
@@ -61,11 +62,34 @@ public class TreeSample {
             }
             System.out.print(",");
             if(node instanceof Branch){
+                if (((Branch) node).right!=null) {
+                    stack.push(((Branch) node).right);
+                }
                 if (((Branch) node).left!=null) {
                     stack.push(((Branch) node).left);
                 }
+            }
+        }
+        return false;
+    }
+
+    static boolean searchSpread(Node root, int data) {
+        Queue<Node> queue = new ArrayDeque<>();
+        queue.offer(root);
+        while (queue.size()!=0){
+            Node node = queue.poll();
+            System.out.print(node.val);
+            if(node.val==data) {
+                System.out.print(":");
+                return true;
+            }
+            System.out.print(",");
+            if(node instanceof Branch){
+                if (((Branch) node).left!=null) {
+                    queue.offer(((Branch) node).left);
+                }
                 if (((Branch) node).right!=null) {
-                    stack.push(((Branch) node).right);
+                    queue.offer(((Branch) node).right);
                 }
             }
         }
@@ -83,6 +107,7 @@ public class TreeSample {
                 ));
         int data =6;
         System.out.println(searchDeep(root,data));
+        System.out.println(searchSpread(root,data));
         System.out.println(root.sum());
     }
 }
