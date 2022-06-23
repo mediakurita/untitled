@@ -34,19 +34,10 @@ public class DiffSampleInherit {
     }
 
     static BufferedImage lineImage(){
-        return new ImageDrawer(){
-            @Override
-            public void draw(Graphics2D g){
-                g.drawLine(10,10,220,180);
-            }
-        }.createImage();
+        return ((ImageDrawer) g -> g.drawLine(10, 10, 220, 180)).createImage();
     }
 
     static  BufferedImage rectImage(){
-        return new ImageDrawer(){
-            public void draw(Graphics2D g){
-                g.drawRect(10,10,220,180);
-            }
-        }.createImage();
+        return ((ImageDrawer) g -> g.drawRect(10, 10, 220, 180)).createImage();
     }
 }
