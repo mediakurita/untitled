@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class OrinpicTest {
-
     /**
      * 近代オリンピック開催以前の確認
      */
